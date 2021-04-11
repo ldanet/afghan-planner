@@ -2,20 +2,23 @@ import React, { useReducer } from "react";
 import { render } from "react-dom";
 import { reducer, initialState } from "./reducer";
 import "./index.css";
-import Settings from "./Settings";
+import Settings from "./components/Settings";
+import { OverlayProvider } from "react-aria";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <div>
-      <h1 className="text-center text-4xl">Afghan Planner</h1>
-      <Settings
-        squares={state.squares}
-        grid={state.grid}
-        selectedSquare={state.selectedSquare}
-        dispatch={dispatch}
-      />
-    </div>
+    <OverlayProvider>
+      <div className="p-4">
+        <h1 className="text-center text-4xl mb-4">Afghan Planner</h1>
+        <Settings
+          squares={state.squares}
+          grid={state.grid}
+          selectedSquare={state.selectedSquare}
+          dispatch={dispatch}
+        />
+      </div>
+    </OverlayProvider>
   );
 }
 

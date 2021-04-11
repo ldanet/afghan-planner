@@ -1,13 +1,4 @@
-import { Color } from "@react-types/color";
-import { parseColor } from "@react-stately/color";
-
-export type Square = {
-  name: string;
-  colour: Color;
-  number: number;
-} | null;
-export type Cell = number | null;
-export type Row = Cell[];
+import { Row, Square } from "./types";
 
 type State = {
   squares: Square[];
@@ -19,16 +10,16 @@ type State = {
 };
 
 export const initialState: State = {
-  squares: [{ name: "Grey", colour: parseColor("#888"), number: 16 }],
+  squares: [],
   grid: [
     [null, null, null, null],
     [null, null, null, null],
     [null, null, null, null],
-    [null, null, null, null]
+    [null, null, null, null],
   ],
   height: 4,
   width: 4,
-  selectedSquare: null
+  selectedSquare: null,
 };
 
 export type Action =
@@ -44,7 +35,7 @@ export function reducer(state: State, action: Action): State {
     case "addSquare":
       return {
         ...state,
-        squares: [...state.squares, action.square]
+        squares: [...state.squares, action.square],
       };
     case "updateSquare": {
       const squares = [...state.squares];

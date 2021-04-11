@@ -1,4 +1,4 @@
-import { Row, Square } from "./reducer";
+import { Row } from "./types";
 
 export const countRemainingSquares = (
   index: number,

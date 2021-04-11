@@ -1,0 +1,158 @@
+import React, {
+  Dispatch,
+  useCallback,
+  useState,
+  useRef,
+  InputHTMLAttributes,
+} from "react";
+import { useOverlay, usePreventScroll, useModal } from "@react-aria/overlays";
+import { useDialog } from "@react-aria/dialog";
+import { FocusScope } from "@react-aria/focus";
+import { Color } from "@react-types/color";
+import { parseColor } from "@react-stately/color";
+import { Action } from "../reducer";
+import { Square } from "../types";
+import { useButton } from "@react-aria/button";
+import { useTextField } from "@react-aria/textfield";
+import NumberField from "./baseComponents/NumberField";
+import Button from "./baseComponents/Button";
+import Input from "./baseComponents/Input";
+import ColorSlider from "./baseComponents/ColorSlider";
+
+type BaseProps = {
+  dispatch: Dispatch<Action>;
+  isOpen: boolean;
+  onClose: () => void;
+};
+
+type NewProps = { isNew: true; square: undefined };
+type EditProps = { isNew?: false; square: Square; squareIndex: number };
+
+type Props = BaseProps & (NewProps | EditProps);
+
+function GrannySettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const saveButtonRef = useRef<HTMLButtonElement>(null);
+  const cancelButtonRef = useRef<HTMLButtonElement>(null);
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const [name, setName] = useState<string>(
+    props.square ? props.square.name : ""
+  );
+  const [colour, setColour] = useState<Color>(
+    props.square ? props.square.colour : parseColor("hsl(0,100%,50%)")
+  );
+  const [number, setNumber] = useState<number>(
+    props.square ? props.square.number : 0
+  );
+
+  // Handle interacting outside the dialog and pressing
+  // the Escape key to close the modal.
+  let { overlayProps } = useOverlay(
+    { isDismissable: true, isOpen, onClose },
+    dialogRef
+  );
+
+  // Prevent scrolling while the modal is open, and hide content
+  // outside the modal from screen readers.
+  usePreventScroll({ isDisabled: !isOpen });
+  let { modalProps } = useModal();
+
+  // Get props for the dialog and its title
+  let { dialogProps, titleProps } = useDialog({}, dialogRef);
+
+  const onSave = useCallback(() => {
+    dispatch(
+      props.isNew
+        ? { type: "addSquare", square: { name, colour, number } }
+        : {
+            type: "updateSquare",
+            square: { name, colour, number },
+            index: props.squareIndex,
+          }
+    );
+    onClose();
+  }, [onClose, colour, dispatch, name, number, props]);
+
+  const onCancel = useCallback(() => {
+    onClose();
+  }, [onClose]);
+
+  const { inputProps, labelProps: nameLabelProps } = useTextField(
+    { value: name, onChange: setName },
+    nameInputRef
+  );
+  console.log("nameLabelProps: ", nameLabelProps);
+
+  // Workaround for bug https://github.com/adobe/react-spectrum/issues/1760
+  const nameInputProps = inputProps as InputHTMLAttributes<HTMLInputElement>;
+
+  const { buttonProps: saveButtonProps } = useButton(
+    { type: "submit" },
+    saveButtonRef
+  );
+  const { buttonProps: cancelButtonProps } = useButton(
+    { onPress: onCancel },
+    cancelButtonRef
+  );
+
+  return (
+    <div className="fixed z-50 top-0 left-0 bottom-0 right-0 bg-black bg-opacity-50 flex justify-center items-center">
+      <FocusScope contain restoreFocus autoFocus>
+        <div
+          {...overlayProps}
+          {...dialogProps}
+          {...modalProps}
+          ref={dialogRef}
+          className="bg-white p-6"
+        >
+          <h3 {...titleProps} className="text-2xl mb-2">
+            {props.isNew ? "Add granny square" : "Update granny square"}
+          </h3>
+          <form onSubmit={onSave}>
+            <label
+              className="block text-lg"
+              htmlFor={nameInputProps.id}
+              {...nameLabelProps}
+            >
+              Name
+            </label>
+            <Input className="mb-3" {...nameInputProps} />
+            <fieldset className="mb-3 border border-gray-300 p-4 pt-0">
+              <legend className="text-lg">Square colour</legend>
+              <div
+                className="h-20 w-40 mx-auto"
+                style={{ backgroundColor: colour.toString("css") }}
+              />
+              <ColorSlider channel="hue" value={colour} onChange={setColour} />
+              <ColorSlider
+                channel="saturation"
+                value={colour}
+                onChange={setColour}
+              />
+              <ColorSlider
+                channel="lightness"
+                value={colour}
+                onChange={setColour}
+              />
+            </fieldset>
+            <NumberField
+              className="mb-3"
+              labelClassName="text-lg"
+              label="Number of granny squares of this color"
+              onChange={setNumber}
+              value={number}
+            />
+            <div className="grid gap-3 grid-cols-2">
+              <Button {...cancelButtonProps}>Cancel</Button>
+              <Button {...saveButtonProps}>
+                {props.isNew ? "Add" : "Update"}
+              </Button>
+            </div>
+          </form>
+        </div>
+      </FocusScope>
+    </div>
+  );
+}
+
+export default GrannySettingsModal;

@@ -1,4 +1,4 @@
-import React, { Dispatch, useRef } from "react";
+import { Dispatch, useRef } from "react";
 import { useOverlayTriggerState } from "@react-stately/overlays";
 import { OverlayContainer } from "@react-aria/overlays";
 import { useButton } from "@react-aria/button";

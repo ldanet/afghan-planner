@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import { useReducer } from "react";
 import { render } from "react-dom";
 import { reducer, initialState } from "./reducer";
 import "./index.css";

@@ -1,4 +1,4 @@
-import React, { Dispatch } from "react";
+import { Dispatch } from "react";
 import { countRemainingSquares } from "../helpers";
 import { Action } from "../reducer";
 import { Row, Square } from "../types";

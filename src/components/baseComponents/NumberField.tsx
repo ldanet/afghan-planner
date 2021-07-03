@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useNumberFieldState } from "@react-stately/numberfield";
 import { useLocale } from "@react-aria/i18n";
 import { useButton } from "@react-aria/button";

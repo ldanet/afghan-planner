@@ -2,7 +2,7 @@ import { Dispatch, useRef } from "react";
 import { useOverlayTriggerState } from "@react-stately/overlays";
 import { OverlayContainer } from "@react-aria/overlays";
 import { useButton } from "@react-aria/button";
-import GrannySettingsModal from "./GrannySettingsModal";
+import YarnSettingsModal from "./YarnSettingsModal";
 import { Yarn } from "../types";
 import { Action } from "../reducer";
 import Button from "./baseComponents/Button";
@@ -15,7 +15,7 @@ type Props = {
   remainingCount: number;
 };
 
-function GrannyTile({
+function YarnTile({
   yarn,
   isSelected,
   dispatch,
@@ -64,7 +64,7 @@ function GrannyTile({
         </Button>
         {state.isOpen && (
           <OverlayContainer>
-            <GrannySettingsModal
+            <YarnSettingsModal
               yarnIndex={yarnIndex}
               isOpen={state.isOpen}
               onClose={state.close}
@@ -78,4 +78,4 @@ function GrannyTile({
   );
 }
 
-export default GrannyTile;
+export default YarnTile;

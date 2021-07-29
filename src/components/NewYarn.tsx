@@ -2,7 +2,7 @@ import { Dispatch, useRef } from "react";
 import { useOverlayTriggerState } from "@react-stately/overlays";
 import { OverlayContainer } from "@react-aria/overlays";
 import { useButton } from "@react-aria/button";
-import GrannySettingsModal from "./GrannySettingsModal";
+import YarnSettingsModal from "./YarnSettingsModal";
 import { Action } from "../reducer";
 import Button from "./baseComponents/Button";
 
@@ -31,7 +31,7 @@ function NewYarn({ dispatch }: Props) {
       </Button>
       {state.isOpen && (
         <OverlayContainer>
-          <GrannySettingsModal
+          <YarnSettingsModal
             isNew
             yarn={undefined}
             isOpen={state.isOpen}

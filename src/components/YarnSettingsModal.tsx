@@ -30,14 +30,12 @@ type EditProps = { isNew?: false; yarn: Yarn; yarnIndex: number };
 
 type Props = BaseProps & (NewProps | EditProps);
 
-function GrannySettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
+function YarnSettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const saveButtonRef = useRef<HTMLButtonElement>(null);
   const cancelButtonRef = useRef<HTMLButtonElement>(null);
   const nameInputRef = useRef<HTMLInputElement>(null);
-  const [name, setName] = useState<string>(
-    props.yarn ? props.yarn.name : ""
-  );
+  const [name, setName] = useState<string>(props.yarn ? props.yarn.name : "");
   const [colour, setColour] = useState<Color>(
     props.yarn ? props.yarn.colour : parseColor("hsl(0,100%,50%)")
   );
@@ -106,7 +104,7 @@ function GrannySettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
           className="bg-white p-6"
         >
           <h3 {...titleProps} className="text-2xl mb-2">
-            {props.isNew ? "Add granny yarn" : "Update granny yarn"}
+            {props.isNew ? "Add yarn" : "Update yarn"}
           </h3>
           <form onSubmit={onSave}>
             <label
@@ -138,7 +136,7 @@ function GrannySettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
             <NumberField
               className="mb-3"
               labelClassName="text-lg"
-              label="Number of granny yarns of this color"
+              label="Maximum number of squares in this yarn"
               onChange={setNumber}
               value={number}
             />
@@ -155,4 +153,4 @@ function GrannySettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
   );
 }
 
-export default GrannySettingsModal;
+export default YarnSettingsModal;

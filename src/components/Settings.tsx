@@ -1,35 +1,27 @@
-import { Dispatch } from "react";
+import { useContext } from "react";
 import { countRemainingYarns } from "../helpers";
-import { Action } from "../reducer";
-import { Row, Yarn } from "../types";
-import GrannyTile from "./GrannyTile";
+import YarnTile from "./YarnTile";
 import NewYarn from "./NewYarn";
+import { StateContext } from "./Provider";
 
-type Props = {
-  yarns: Yarn[];
-  selectedYarn: number | null;
-  dispatch: Dispatch<Action>;
-  grid: Row[];
-};
-
-function Settings({ yarns, grid, selectedYarn, dispatch }: Props) {
+function Settings() {
+  const {
+    state: { yarns, grid, selectedYarn },
+    dispatch,
+  } = useContext(StateContext);
   return (
     <>
-      <h2 className="text-2xl mb-3">Granny yarns settings</h2>
+      <h2 className="text-2xl mb-3">Yarn settings</h2>
       <ul className="flex justify-start flex-wrap">
         {yarns.map(
-          (granny, index) =>
-            granny && (
-              <GrannyTile
+          (yarn, index) =>
+            yarn && (
+              <YarnTile
                 yarnIndex={index}
-                yarn={granny}
+                yarn={yarn}
                 isSelected={selectedYarn === index}
                 dispatch={dispatch}
-                remainingCount={countRemainingYarns(
-                  index,
-                  granny.number,
-                  grid
-                )}
+                remainingCount={countRemainingYarns(index, yarn.number, grid)}
               />
             )
         )}

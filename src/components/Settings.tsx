@@ -1,31 +1,31 @@
 import { Dispatch } from "react";
-import { countRemainingSquares } from "../helpers";
+import { countRemainingYarns } from "../helpers";
 import { Action } from "../reducer";
-import { Row, Square } from "../types";
+import { Row, Yarn } from "../types";
 import GrannyTile from "./GrannyTile";
-import NewSquare from "./NewSquare";
+import NewYarn from "./NewYarn";
 
 type Props = {
-  squares: Square[];
-  selectedSquare: number | null;
+  yarns: Yarn[];
+  selectedYarn: number | null;
   dispatch: Dispatch<Action>;
   grid: Row[];
 };
 
-function Settings({ squares, grid, selectedSquare, dispatch }: Props) {
+function Settings({ yarns, grid, selectedYarn, dispatch }: Props) {
   return (
     <>
-      <h2 className="text-2xl mb-3">Granny squares settings</h2>
+      <h2 className="text-2xl mb-3">Granny yarns settings</h2>
       <ul className="flex justify-start flex-wrap">
-        {squares.map(
+        {yarns.map(
           (granny, index) =>
             granny && (
               <GrannyTile
-                squareIndex={index}
-                square={granny}
-                isSelected={selectedSquare === index}
+                yarnIndex={index}
+                yarn={granny}
+                isSelected={selectedYarn === index}
                 dispatch={dispatch}
-                remainingCount={countRemainingSquares(
+                remainingCount={countRemainingYarns(
                   index,
                   granny.number,
                   grid
@@ -33,7 +33,7 @@ function Settings({ squares, grid, selectedSquare, dispatch }: Props) {
               />
             )
         )}
-        {<NewSquare dispatch={dispatch} />}
+        {<NewYarn dispatch={dispatch} />}
       </ul>
     </>
   );

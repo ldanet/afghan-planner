@@ -12,9 +12,9 @@ function App() {
       <div className="p-4">
         <h1 className="text-center text-4xl mb-4">Afghan Planner</h1>
         <Settings
-          squares={state.squares}
+          yarns={state.yarns}
           grid={state.grid}
-          selectedSquare={state.selectedSquare}
+          selectedYarn={state.selectedYarn}
           dispatch={dispatch}
         />
       </div>

@@ -1,16 +1,16 @@
-import { Row, Square } from "./types";
+import { Row, Yarn } from "./types";
 
 type State = {
-  squares: Square[];
+  yarns: Yarn[];
   grid: Row[];
   height: number;
   width: number;
 
-  selectedSquare: number | null;
+  selectedYarn: number | null;
 };
 
 export const initialState: State = {
-  squares: [],
+  yarns: [],
   grid: [
     [null, null, null, null],
     [null, null, null, null],
@@ -19,28 +19,28 @@ export const initialState: State = {
   ],
   height: 4,
   width: 4,
-  selectedSquare: null,
+  selectedYarn: null,
 };
 
 export type Action =
-  | { type: "addSquare"; square: Square }
+  | { type: "addYarn"; yarn: Yarn }
   | { type: "setHeight"; height: number }
-  | { type: "updateSquare"; index: number; square: Square }
+  | { type: "updateYarn"; index: number; yarn: Yarn }
   | { type: "setWidth"; width: number }
-  | { type: "applySquare"; x: number; y: number; square: number }
-  | { type: "selectSquare"; index: number | null };
+  | { type: "applyYarn"; x: number; y: number; yarn: number }
+  | { type: "selectYarn"; index: number | null };
 
 export function reducer(state: State, action: Action): State {
   switch (action.type) {
-    case "addSquare":
+    case "addYarn":
       return {
         ...state,
-        squares: [...state.squares, action.square],
+        yarns: [...state.yarns, action.yarn],
       };
-    case "updateSquare": {
-      const squares = [...state.squares];
-      squares[action.index] = action.square;
-      return { ...state, squares };
+    case "updateYarn": {
+      const yarns = [...state.yarns];
+      yarns[action.index] = action.yarn;
+      return { ...state, yarns };
     }
     case "setHeight": {
       const grid =
@@ -60,19 +60,19 @@ export function reducer(state: State, action: Action): State {
       });
       return { ...state, grid, width: action.width };
     }
-    case "applySquare": {
+    case "applyYarn": {
       const grid = state.grid.map((row, index) => {
         if (action.y === index) {
           const newRow = [...row];
-          newRow[action.x] = action.square;
+          newRow[action.x] = action.yarn;
           return newRow;
         }
         return row;
       });
       return { ...state, grid };
     }
-    case "selectSquare": {
-      return { ...state, selectedSquare: action.index };
+    case "selectYarn": {
+      return { ...state, selectedYarn: action.index };
     }
     default:
       throw new Error(

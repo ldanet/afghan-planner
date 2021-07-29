@@ -10,7 +10,7 @@ type Props = {
   dispatch: Dispatch<Action>;
 };
 
-function NewSquare({ dispatch }: Props) {
+function NewYarn({ dispatch }: Props) {
   let state = useOverlayTriggerState({});
   let openButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -27,13 +27,13 @@ function NewSquare({ dispatch }: Props) {
   return (
     <li className="flex items-center justify-items-center m-2">
       <Button {...openButtonProps} ref={openButtonRef}>
-        Add new square
+        Add new yarn
       </Button>
       {state.isOpen && (
         <OverlayContainer>
           <GrannySettingsModal
             isNew
-            square={undefined}
+            yarn={undefined}
             isOpen={state.isOpen}
             onClose={state.close}
             dispatch={dispatch}
@@ -44,4 +44,4 @@ function NewSquare({ dispatch }: Props) {
   );
 }
 
-export default NewSquare;
+export default NewYarn;

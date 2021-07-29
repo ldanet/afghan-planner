@@ -3,23 +3,23 @@ import { useOverlayTriggerState } from "@react-stately/overlays";
 import { OverlayContainer } from "@react-aria/overlays";
 import { useButton } from "@react-aria/button";
 import GrannySettingsModal from "./GrannySettingsModal";
-import { Square } from "../types";
+import { Yarn } from "../types";
 import { Action } from "../reducer";
 import Button from "./baseComponents/Button";
 
 type Props = {
-  square: Square;
+  yarn: Yarn;
   dispatch: Dispatch<Action>;
   isSelected: boolean;
-  squareIndex: number;
+  yarnIndex: number;
   remainingCount: number;
 };
 
 function GrannyTile({
-  square,
+  yarn,
   isSelected,
   dispatch,
-  squareIndex,
+  yarnIndex,
   remainingCount,
 }: Props) {
   let state = useOverlayTriggerState({});
@@ -38,22 +38,22 @@ function GrannyTile({
   let { buttonProps: deleteButtonProps } = useButton(
     {
       onPress: () =>
-        dispatch({ type: "updateSquare", square: null, index: squareIndex }),
+        dispatch({ type: "updateYarn", yarn: null, index: yarnIndex }),
     },
     deleteButtonRef
   );
 
   return (
-    square && (
+    yarn && (
       <li className="flex space-x-4 m-2 items-center border-gray-300 border p-2">
         <div
           className="w-8 h-8"
-          style={{ backgroundColor: square.colour.toString("css") }}
+          style={{ backgroundColor: yarn.colour.toString("css") }}
         />
-        {square.name && <p>{square.name}</p>}
-        {square.number > 0 && (
+        {yarn.name && <p>{yarn.name}</p>}
+        {yarn.number > 0 && (
           <div>
-            {remainingCount} / {square.number} remaining
+            {remainingCount} / {yarn.number} remaining
           </div>
         )}
         <Button {...editButtonProps} ref={editButtonRef}>
@@ -65,10 +65,10 @@ function GrannyTile({
         {state.isOpen && (
           <OverlayContainer>
             <GrannySettingsModal
-              squareIndex={squareIndex}
+              yarnIndex={yarnIndex}
               isOpen={state.isOpen}
               onClose={state.close}
-              square={square}
+              yarn={yarn}
               dispatch={dispatch}
             />
           </OverlayContainer>

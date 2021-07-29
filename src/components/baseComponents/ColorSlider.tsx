@@ -24,21 +24,16 @@ function ColorSlider(props: Props) {
   // Default label to the channel name in the current locale
   let label = props.label || state.value.getChannelName(props.channel, locale);
 
-  let {
-    trackProps,
-    thumbProps,
-    inputProps,
-    labelProps,
-    outputProps,
-  } = useColorSlider(
-    {
-      ...props,
-      label,
-      trackRef,
-      inputRef,
-    },
-    state
-  );
+  let { trackProps, thumbProps, inputProps, labelProps, outputProps } =
+    useColorSlider(
+      {
+        ...props,
+        label,
+        trackRef,
+        inputRef,
+      },
+      state
+    );
 
   let { focusProps, isFocusVisible } = useFocusRing();
 

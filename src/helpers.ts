@@ -1,6 +1,6 @@
 import { Row } from "./types";
 
-export const countRemainingSquares = (
+export const countRemainingYarns = (
   index: number,
   total: number,
   grid: Row[]

@@ -1,6 +1,6 @@
 import { Color } from "@react-types/color";
 
-export type Square = {
+export type Yarn = {
   name: string;
   colour: Color;
   number: number;

@@ -11,7 +11,7 @@ import { FocusScope } from "@react-aria/focus";
 import { Color } from "@react-types/color";
 import { parseColor } from "@react-stately/color";
 import { Action } from "../reducer";
-import { Square } from "../types";
+import { Yarn } from "../types";
 import { useButton } from "@react-aria/button";
 import { useTextField } from "@react-aria/textfield";
 import NumberField from "./baseComponents/NumberField";
@@ -25,8 +25,8 @@ type BaseProps = {
   onClose: () => void;
 };
 
-type NewProps = { isNew: true; square: undefined };
-type EditProps = { isNew?: false; square: Square; squareIndex: number };
+type NewProps = { isNew: true; yarn: undefined };
+type EditProps = { isNew?: false; yarn: Yarn; yarnIndex: number };
 
 type Props = BaseProps & (NewProps | EditProps);
 
@@ -36,13 +36,13 @@ function GrannySettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
   const cancelButtonRef = useRef<HTMLButtonElement>(null);
   const nameInputRef = useRef<HTMLInputElement>(null);
   const [name, setName] = useState<string>(
-    props.square ? props.square.name : ""
+    props.yarn ? props.yarn.name : ""
   );
   const [colour, setColour] = useState<Color>(
-    props.square ? props.square.colour : parseColor("hsl(0,100%,50%)")
+    props.yarn ? props.yarn.colour : parseColor("hsl(0,100%,50%)")
   );
   const [number, setNumber] = useState<number>(
-    props.square ? props.square.number : 0
+    props.yarn ? props.yarn.number : 0
   );
 
   // Handle interacting outside the dialog and pressing
@@ -63,11 +63,11 @@ function GrannySettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
   const onSave = useCallback(() => {
     dispatch(
       props.isNew
-        ? { type: "addSquare", square: { name, colour, number } }
+        ? { type: "addYarn", yarn: { name, colour, number } }
         : {
-            type: "updateSquare",
-            square: { name, colour, number },
-            index: props.squareIndex,
+            type: "updateYarn",
+            yarn: { name, colour, number },
+            index: props.yarnIndex,
           }
     );
     onClose();
@@ -106,7 +106,7 @@ function GrannySettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
           className="bg-white p-6"
         >
           <h3 {...titleProps} className="text-2xl mb-2">
-            {props.isNew ? "Add granny square" : "Update granny square"}
+            {props.isNew ? "Add granny yarn" : "Update granny yarn"}
           </h3>
           <form onSubmit={onSave}>
             <label
@@ -118,7 +118,7 @@ function GrannySettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
             </label>
             <Input className="mb-3" {...nameInputProps} />
             <fieldset className="mb-3 border border-gray-300 p-4 pt-0">
-              <legend className="text-lg">Square colour</legend>
+              <legend className="text-lg">Yarn colour</legend>
               <div
                 className="h-20 w-40 mx-auto"
                 style={{ backgroundColor: colour.toString("css") }}
@@ -138,7 +138,7 @@ function GrannySettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
             <NumberField
               className="mb-3"
               labelClassName="text-lg"
-              label="Number of granny squares of this color"
+              label="Number of granny yarns of this color"
               onChange={setNumber}
               value={number}
             />

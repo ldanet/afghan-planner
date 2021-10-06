@@ -12,8 +12,8 @@ const Braid = () => (
       d="M70 45 55 30l-5 5 15 15Z"
       className="seven-b"
     ></path>
-    <path fill="#181818" d="M0 5v10l10 10 5-5Z"></path>
-    <path fill="#181818" d="M0 15v10l10 10 5-5Z"></path>
+    <path fill="#181818" d="M0 5v10l10 10 5-5Z" className="two-b"></path>
+    <path fill="#181818" d="M0 15v10l10 10 5-5Z" className="four-b"></path>
     <path fill="#eeedea" d="M0 25v10l10 10 5-5Z"></path>
     <path fill="#9644c6" d="M0 35v10l10 10 5-5Z"></path>
     <path fill="#9644c6" d="M0 45v10l10 10 5-5Z"></path>
@@ -25,10 +25,10 @@ const Braid = () => (
     <path fill="#eeedea" d="M0 105v10l10 10 5-5z" className="seven-t"></path>
     <path fill="#9644c6" d="M0 115v10l10 10 5-5z" className="fifteen-t"></path>
     <path fill="#9644c6" d="M0 125v10l10 10 5-5z" className="thirteen-t"></path>
-    <path fill="#c2015b" d="M0 135v10l10 10 5-5z"></path>
-    <path fill="#c2015b" d="M0 145v10l10 10 5-5z"></path>
-    <path fill="#181818" d="M0 155v10l10 10 5-5z"></path>
-    <path fill="#181818" d="M0 165v10l10 10 5-5z"></path>
+    <path fill="#c2015b" d="M0 135v10l10 10 5-5z" className="eleven-t"></path>
+    <path fill="#c2015b" d="M0 145v10l10 10 5-5z" className="nine-t"></path>
+    <path fill="#181818" d="M0 155v10l10 10 5-5z" className="two-t"></path>
+    <path fill="#181818" d="M0 165v10l10 10 5-5z" className="four-t"></path>
     <path fill="#eeedea" d="M0 175v10l10 10 5-5z"></path>
     <path fill="#9644c6" d="M0 185v10l10 10 5-5z"></path>
     <path fill="#9644c6" d="M0 195v10l10 10 5-5z"></path>
@@ -40,10 +40,10 @@ const Braid = () => (
     <path fill="#eeedea" d="M0 255v10l10 10 5-5z" className="seven-b"></path>
     <path fill="#9644c6" d="M0 265v10l10 10 5-5z" className="fifteen-b"></path>
     <path fill="#9644c6" d="M0 275v10l10 10 5-5z" className="thirteen-b"></path>
-    <path fill="#c2015b" d="M0 285v10l10 10 5-5z"></path>
-    <path fill="#c2015b" d="M0 295v10l10 10 5-5z"></path>
-    <path fill="#181818" d="M110 5v10l-10 10-5-5Z"></path>
-    <path fill="#181818" d="M110 15v10l-10 10-5-5Z"></path>
+    <path fill="#c2015b" d="M0 285v10l10 10 5-5z" className="eleven-b"></path>
+    <path fill="#c2015b" d="M0 295v10l10 10 5-5z" className="nine-b"></path>
+    <path fill="#181818" d="M110 5v10l-10 10-5-5Z" className="two-t"></path>
+    <path fill="#181818" d="M110 15v10l-10 10-5-5Z" className="four-t"></path>
     <path fill="#eeedea" d="M110 25v10l-10 10-5-5Z"></path>
     <path fill="#9644c6" d="M110 35v10l-10 10-5-5Z"></path>
     <path fill="#9644c6" d="M110 45v10l-10 10-5-5Z"></path>
@@ -63,10 +63,14 @@ const Braid = () => (
       d="M110 125v10l-10 10-5-5z"
       className="thirteen-b"
     ></path>
-    <path fill="#c2015b" d="M110 135v10l-10 10-5-5z"></path>
-    <path fill="#c2015b" d="M110 145v10l-10 10-5-5z"></path>
-    <path fill="#181818" d="M110 155v10l-10 10-5-5z"></path>
-    <path fill="#181818" d="M110 165v10l-10 10-5-5z"></path>
+    <path
+      fill="#c2015b"
+      d="M110 135v10l-10 10-5-5z"
+      className="eleven-b"
+    ></path>
+    <path fill="#c2015b" d="M110 145v10l-10 10-5-5z" className="nine-b"></path>
+    <path fill="#181818" d="M110 155v10l-10 10-5-5z" className="two-b"></path>
+    <path fill="#181818" d="M110 165v10l-10 10-5-5z" className="four-b"></path>
     <path fill="#eeedea" d="M110 175v10l-10 10-5-5z"></path>
     <path fill="#9644c6" d="M110 185v10l-10 10-5-5z"></path>
     <path fill="#9644c6" d="M110 195v10l-10 10-5-5z"></path>
@@ -86,8 +90,12 @@ const Braid = () => (
       d="M110 275v10l-10 10-5-5z"
       className="thirteen-t"
     ></path>
-    <path fill="#c2015b" d="M110 285v10l-10 10-5-5z"></path>
-    <path fill="#c2015b" d="M110 295v10l-10 10-5-5z"></path>
+    <path
+      fill="#c2015b"
+      d="M110 285v10l-10 10-5-5z"
+      className="eleven-t"
+    ></path>
+    <path fill="#c2015b" d="M110 295v10l-10 10-5-5z" className="nine-t"></path>
     <path fill="#9644c6" d="M10 15 25 0l5 5-15 15Z"></path>
     <path fill="#9644c6" d="m10 25 15-15 5 5-15 15Z"></path>
     <path fill="#c2015b" d="m10 35 15-15 5 5-15 15Z"></path>
@@ -106,10 +114,14 @@ const Braid = () => (
       d="m10 105 15-15 5 5-15 15z"
       className="thirteen-t"
     ></path>
-    <path fill="#c2015b" d="m10 115 15-15 5 5-15 15z"></path>
-    <path fill="#c2015b" d="m10 125 15-15 5 5-15 15z"></path>
-    <path fill="#181818" d="m10 135 15-15 5 5-15 15z"></path>
-    <path fill="#181818" d="m10 145 15-15 5 5-15 15z"></path>
+    <path
+      fill="#c2015b"
+      d="m10 115 15-15 5 5-15 15z"
+      className="eleven-t"
+    ></path>
+    <path fill="#c2015b" d="m10 125 15-15 5 5-15 15z" className="nine-t"></path>
+    <path fill="#181818" d="m10 135 15-15 5 5-15 15z" className="two-t"></path>
+    <path fill="#181818" d="m10 145 15-15 5 5-15 15z" className="four-t"></path>
     <path fill="#eeedea" d="m10 155 15-15 5 5-15 15z"></path>
     <path fill="#9644c6" d="m10 165 15-15 5 5-15 15z"></path>
     <path fill="#9644c6" d="m10 175 15-15 5 5-15 15z"></path>
@@ -137,10 +149,14 @@ const Braid = () => (
       d="m10 255 15-15 5 5-15 15z"
       className="thirteen-b"
     ></path>
-    <path fill="#c2015b" d="m10 265 15-15 5 5-15 15z"></path>
-    <path fill="#c2015b" d="m10 275 15-15 5 5-15 15z"></path>
-    <path fill="#181818" d="m10 285 15-15 5 5-15 15z"></path>
-    <path fill="#181818" d="m10 295 15-15 5 5-15 15z"></path>
+    <path
+      fill="#c2015b"
+      d="m10 265 15-15 5 5-15 15z"
+      className="eleven-b"
+    ></path>
+    <path fill="#c2015b" d="m10 275 15-15 5 5-15 15z" className="nine-b"></path>
+    <path fill="#181818" d="m10 285 15-15 5 5-15 15z" className="two-b"></path>
+    <path fill="#181818" d="m10 295 15-15 5 5-15 15z" className="four-b"></path>
     <path fill="#eeedea" d="m10 305 15-15 5 5-15 15z"></path>
     <path fill="#9644c6" d="M100 15 85 0l-5 5 15 15Z"></path>
     <path fill="#9644c6" d="M100 25 85 10l-5 5 15 15Z"></path>
@@ -172,10 +188,18 @@ const Braid = () => (
       d="M100 105 85 90l-5 5 15 15Z"
       className="thirteen-b"
     ></path>
-    <path fill="#c2015b" d="m100 115-15-15-5 5 15 15z"></path>
-    <path fill="#c2015b" d="m100 125-15-15-5 5 15 15z"></path>
-    <path fill="#181818" d="m100 135-15-15-5 5 15 15z"></path>
-    <path fill="#181818" d="m100 145-15-15-5 5 15 15z"></path>
+    <path
+      fill="#c2015b"
+      d="m100 115-15-15-5 5 15 15z"
+      className="eleven-b"
+    ></path>
+    <path
+      fill="#c2015b"
+      d="m100 125-15-15-5 5 15 15z"
+      className="nine-b"
+    ></path>
+    <path fill="#181818" d="m100 135-15-15-5 5 15 15z" className="two-b"></path>
+    <path fill="#181818" d="m100 145-15-15-5 5 15 15z" className=""></path>
     <path fill="#eeedea" d="m100 155-15-15-5 5 15 15z"></path>
     <path fill="#9644c6" d="m100 165-15-15-5 5 15 15z"></path>
     <path fill="#9644c6" d="m100 175-15-15-5 5 15 15z"></path>
@@ -207,10 +231,22 @@ const Braid = () => (
       d="m100 255-15-15-5 5 15 15z"
       className="thirteen-t"
     ></path>
-    <path fill="#c2015b" d="m100 265-15-15-5 5 15 15z"></path>
-    <path fill="#c2015b" d="m100 275-15-15-5 5 15 15z"></path>
-    <path fill="#181818" d="m100 285-15-15-5 5 15 15z"></path>
-    <path fill="#181818" d="m100 295-15-15-5 5 15 15z"></path>
+    <path
+      fill="#c2015b"
+      d="m100 265-15-15-5 5 15 15z"
+      className="eleven-t"
+    ></path>
+    <path
+      fill="#c2015b"
+      d="m100 275-15-15-5 5 15 15z"
+      className="nine-t"
+    ></path>
+    <path fill="#181818" d="m100 285-15-15-5 5 15 15z" className="two-t"></path>
+    <path
+      fill="#181818"
+      d="m100 295-15-15-5 5 15 15z"
+      className="four-t"
+    ></path>
     <path fill="#eeedea" d="m100 305-15-15-5 5 15 15z"></path>
     <path fill="#9644c6" d="m65 90 15-15 5 5-15 15Z"></path>
     <path fill="#9644c6" d="m65 100 15-15 5 5-15 15z"></path>
@@ -238,10 +274,14 @@ const Braid = () => (
       d="m65 180 15-15 5 5-15 15z"
       className="thirteen-b"
     ></path>
-    <path fill="#c2015b" d="m65 190 15-15 5 5-15 15z"></path>
-    <path fill="#c2015b" d="m65 200 15-15 5 5-15 15z"></path>
-    <path fill="#181818" d="m65 210 15-15 5 5-15 15z"></path>
-    <path fill="#181818" d="m65 220 15-15 5 5-15 15z"></path>
+    <path
+      fill="#c2015b"
+      d="m65 190 15-15 5 5-15 15z"
+      className="eleven-b"
+    ></path>
+    <path fill="#c2015b" d="m65 200 15-15 5 5-15 15z" className="nine-b"></path>
+    <path fill="#181818" d="m65 210 15-15 5 5-15 15z" className="two-b"></path>
+    <path fill="#181818" d="m65 220 15-15 5 5-15 15z" className="four-b"></path>
     <path fill="#eeedea" d="m65 230 15-15 5 5-15 15z"></path>
     <path fill="#9644c6" d="m65 240 15-15 5 5-15 15z"></path>
     <path fill="#9644c6" d="m65 250 15-15 5 5-15 15z"></path>
@@ -269,10 +309,14 @@ const Braid = () => (
       d="m65 30 15-15 5 5-15 15Z"
       className="thirteen-t"
     ></path>
-    <path fill="#c2015b" d="m65 40 15-15 5 5-15 15Z"></path>
-    <path fill="#c2015b" d="m65 50 15-15 5 5-15 15Z"></path>
-    <path fill="#181818" d="m65 60 15-15 5 5-15 15Z"></path>
-    <path fill="#181818" d="m65 70 15-15 5 5-15 15Z"></path>
+    <path
+      fill="#c2015b"
+      d="m65 40 15-15 5 5-15 15Z"
+      className="eleven-t"
+    ></path>
+    <path fill="#c2015b" d="m65 50 15-15 5 5-15 15Z" className="nine-t"></path>
+    <path fill="#181818" d="m65 60 15-15 5 5-15 15Z" className="two-t"></path>
+    <path fill="#181818" d="m65 70 15-15 5 5-15 15Z" className="four-t"></path>
     <path fill="#eeedea" d="m65 80 15-15 5 5-15 15Z"></path>
     <path fill="#9644c6" d="M45 90 30 75l-5 5 15 15Z"></path>
     <path fill="#9644c6" d="M45 100 30 85l-5 5 15 15Z"></path>
@@ -300,10 +344,14 @@ const Braid = () => (
       d="m45 180-15-15-5 5 15 15z"
       className="thirteen-t"
     ></path>
-    <path fill="#c2015b" d="m45 190-15-15-5 5 15 15z"></path>
-    <path fill="#c2015b" d="m45 200-15-15-5 5 15 15z"></path>
-    <path fill="#181818" d="m45 210-15-15-5 5 15 15z"></path>
-    <path fill="#181818" d="m45 220-15-15-5 5 15 15z"></path>
+    <path
+      fill="#c2015b"
+      d="m45 190-15-15-5 5 15 15z"
+      className="eleven-t"
+    ></path>
+    <path fill="#c2015b" d="m45 200-15-15-5 5 15 15z" className="nine-t"></path>
+    <path fill="#181818" d="m45 210-15-15-5 5 15 15z" className="two-t"></path>
+    <path fill="#181818" d="m45 220-15-15-5 5 15 15z" className="four-t"></path>
     <path fill="#eeedea" d="m45 230-15-15-5 5 15 15z"></path>
     <path fill="#9644c6" d="m45 240-15-15-5 5 15 15z"></path>
     <path fill="#9644c6" d="m45 250-15-15-5 5 15 15z"></path>
@@ -331,10 +379,14 @@ const Braid = () => (
       d="M45 30 30 15l-5 5 15 15Z"
       className="thirteen-b"
     ></path>
-    <path fill="#c2015b" d="M45 40 30 25l-5 5 15 15Z"></path>
-    <path fill="#c2015b" d="M45 50 30 35l-5 5 15 15Z"></path>
-    <path fill="#181818" d="M45 60 30 45l-5 5 15 15Z"></path>
-    <path fill="#181818" d="M45 70 30 55l-5 5 15 15Z"></path>
+    <path
+      fill="#c2015b"
+      d="M45 40 30 25l-5 5 15 15Z"
+      className="eleven-b"
+    ></path>
+    <path fill="#c2015b" d="M45 50 30 35l-5 5 15 15Z" className="nine-b"></path>
+    <path fill="#181818" d="M45 60 30 45l-5 5 15 15Z" className="two-b"></path>
+    <path fill="#181818" d="M45 70 30 55l-5 5 15 15Z" className="four-b"></path>
     <path fill="#eeedea" d="M45 80 30 65l-5 5 15 15Z"></path>
     <path fill="#9644c6" d="m70 125-15-15-5 5 15 15z"></path>
     <path fill="#9644c6" d="m70 135-15-15-5 5 15 15z"></path>
@@ -362,10 +414,14 @@ const Braid = () => (
       d="m70 215-15-15-5 5 15 15z"
       className="thirteen-t"
     ></path>
-    <path fill="#c2015b" d="m70 225-15-15-5 5 15 15z"></path>
-    <path fill="#c2015b" d="m70 235-15-15-5 5 15 15z"></path>
-    <path fill="#181818" d="m70 245-15-15-5 5 15 15z"></path>
-    <path fill="#181818" d="m70 255-15-15-5 5 15 15z"></path>
+    <path
+      fill="#c2015b"
+      d="m70 225-15-15-5 5 15 15z"
+      className="eleven-t"
+    ></path>
+    <path fill="#c2015b" d="m70 235-15-15-5 5 15 15z" className="nine-t"></path>
+    <path fill="#181818" d="m70 245-15-15-5 5 15 15z" className="two-t"></path>
+    <path fill="#181818" d="m70 255-15-15-5 5 15 15z" className="four-t"></path>
     <path fill="#eeedea" d="m70 265-15-15-5 5 15 15z"></path>
     <path fill="#9644c6" d="m70 275-15-15-5 5 15 15z"></path>
     <path fill="#9644c6" d="m70 285-15-15-5 5 15 15z"></path>
@@ -381,10 +437,18 @@ const Braid = () => (
       d="M70 65 55 50l-5 5 15 15Z"
       className="thirteen-b"
     ></path>
-    <path fill="#c2015b" d="M70 75 55 60l-5 5 15 15Z"></path>
-    <path fill="#c2015b" d="M70 85 55 70l-5 5 15 15Z"></path>
-    <path fill="#181818" d="M70 95 55 80l-5 5 15 15Z"></path>
-    <path fill="#181818" d="M70 105 55 90l-5 5 15 15Z"></path>
+    <path
+      fill="#c2015b"
+      d="M70 75 55 60l-5 5 15 15Z"
+      className="eleven-b"
+    ></path>
+    <path fill="#c2015b" d="M70 85 55 70l-5 5 15 15Z" className="nine-b"></path>
+    <path fill="#181818" d="M70 95 55 80l-5 5 15 15Z" className="two-b"></path>
+    <path
+      fill="#181818"
+      d="M70 105 55 90l-5 5 15 15Z"
+      className="four-b"
+    ></path>
     <path fill="#eeedea" d="m70 115-15-15-5 5 15 15z"></path>
     <path fill="#181818" d="M40 15 50 5l5 5-10 10Z" className="one-t"></path>
     <path fill="#181818" d="m40 25 10-10 5 5-10 10Z" className="three-t"></path>
@@ -400,10 +464,14 @@ const Braid = () => (
       d="m40 65 10-10 5 5-10 10Z"
       className="thirteen-t"
     ></path>
-    <path fill="#c2015b" d="m40 75 10-10 5 5-10 10Z"></path>
-    <path fill="#c2015b" d="m40 85 10-10 5 5-10 10Z"></path>
-    <path fill="#181818" d="m40 95 10-10 5 5-10 10z"></path>
-    <path fill="#181818" d="m40 105 10-10 5 5-10 10z"></path>
+    <path
+      fill="#c2015b"
+      d="m40 75 10-10 5 5-10 10Z"
+      className="eleven-t"
+    ></path>
+    <path fill="#c2015b" d="m40 85 10-10 5 5-10 10Z" className="nine-t"></path>
+    <path fill="#181818" d="m40 95 10-10 5 5-10 10z" className="two-t"></path>
+    <path fill="#181818" d="m40 105 10-10 5 5-10 10z" className="four-t"></path>
     <path fill="#eeedea" d="m40 115 10-10 5 5-10 10z"></path>
     <path fill="#9644c6" d="m40 125 10-10 5 5-10 10z"></path>
     <path fill="#9644c6" d="m40 135 10-10 5 5-10 10z"></path>
@@ -431,10 +499,14 @@ const Braid = () => (
       d="m40 215 10-10 5 5-10 10z"
       className="thirteen-b"
     ></path>
-    <path fill="#c2015b" d="m40 225 10-10 5 5-10 10z"></path>
-    <path fill="#c2015b" d="m40 235 10-10 5 5-10 10z"></path>
-    <path fill="#181818" d="m40 245 10-10 5 5-10 10z"></path>
-    <path fill="#181818" d="m40 255 10-10 5 5-10 10z"></path>
+    <path
+      fill="#c2015b"
+      d="m40 225 10-10 5 5-10 10z"
+      className="eleven-b"
+    ></path>
+    <path fill="#c2015b" d="m40 235 10-10 5 5-10 10z" className="nine-b"></path>
+    <path fill="#181818" d="m40 245 10-10 5 5-10 10z" className="two-b"></path>
+    <path fill="#181818" d="m40 255 10-10 5 5-10 10z" className="four-b"></path>
     <path fill="#eeedea" d="m40 265 10-10 5 5-10 10z"></path>
     <path fill="#9644c6" d="m40 275 10-10 5 5-10 10z"></path>
     <path fill="#9644c6" d="m40 285 10-10 5 5-10 10z"></path>

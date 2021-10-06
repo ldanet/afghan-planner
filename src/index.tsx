@@ -4,6 +4,7 @@ import Grid from "./components/Grid";
 import Settings from "./components/Settings";
 import { StateProvider } from "./components/Provider";
 import { OverlayProvider } from "react-aria";
+import Braid from "./components/Braid";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <h1 className="text-center text-4xl mb-4">Afghan Planner</h1>
           <Settings />
           <Grid />
+          <Braid />
         </div>
       </OverlayProvider>
     </StateProvider>

@@ -1,22 +1,50 @@
+import { parseColor } from "@react-stately/color";
 import { Row, Yarn } from "./types";
 
 type State = {
   yarns: Yarn[];
   grid: Row[];
+  braid: { top: number[]; bottom: number[] };
   height: number;
   width: number;
 
   selectedYarn: number | null;
 };
 
+const defaultYarns: Yarn[] = [
+  {
+    name: "Red",
+    colour: parseColor("hsl(332,99%,38%)"),
+    number: 0,
+  },
+  {
+    name: "Black",
+    colour: parseColor("hsl(0,0%,9%)"),
+    number: 0,
+  },
+  {
+    name: "Purple",
+    colour: parseColor("hsl(278,53%,52%)"),
+    number: 0,
+  },
+  {
+    name: "White",
+    colour: parseColor("hsl(45,11%,93%)"),
+    number: 0,
+  },
+];
+
+const defaultBraidLayer = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3];
+
 export const initialState: State = {
-  yarns: [],
+  yarns: defaultYarns,
   grid: [
     [null, null, null, null],
     [null, null, null, null],
     [null, null, null, null],
     [null, null, null, null],
   ],
+  braid: { top: defaultBraidLayer, bottom: defaultBraidLayer },
   height: 4,
   width: 4,
   selectedYarn: null,
@@ -27,7 +55,13 @@ export type Action =
   | { type: "setHeight"; height: number }
   | { type: "updateYarn"; index: number; yarn: Yarn }
   | { type: "setWidth"; width: number }
-  | { type: "applyYarn"; x: number; y: number; yarn: number }
+  | { type: "applyYarnToGrid"; x: number; y: number; yarn: number }
+  | {
+      type: "applyYarnToBraid";
+      index: number;
+      layer: "top" | "bottom" | "both";
+      yarn: number;
+    }
   | { type: "selectYarn"; index: number | null };
 
 export function reducer(state: State, action: Action): State {
@@ -60,7 +94,7 @@ export function reducer(state: State, action: Action): State {
       });
       return { ...state, grid, width: action.width };
     }
-    case "applyYarn": {
+    case "applyYarnToGrid": {
       const grid = state.grid.map((row, index) => {
         if (action.y === index) {
           const newRow = [...row];
@@ -70,6 +104,19 @@ export function reducer(state: State, action: Action): State {
         return row;
       });
       return { ...state, grid };
+    }
+    case "applyYarnToBraid": {
+      const { layer, index, yarn } = action;
+      const braid = Object.assign({}, state.braid);
+      if (layer === "top" || layer === "both") {
+        braid.top = [...state.braid.top];
+        braid.top[index] = yarn;
+      }
+      if (layer === "bottom" || layer === "both") {
+        braid.bottom = [...state.braid.bottom];
+        braid.bottom[index] = yarn;
+      }
+      return { ...state, braid };
     }
     case "selectYarn": {
       return { ...state, selectedYarn: action.index };

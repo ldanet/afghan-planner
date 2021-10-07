@@ -1,0 +1,34 @@
+.braid path:hover {
+    @apply stroke-current text-red-500;
+}
+
+.one-t { fill: var(--one-t);  }
+.one-b { fill: var(--one-b);  }
+.two-t { fill: var(--two-t);  }
+.two-b { fill: var(--two-b);  }
+.three-t { fill: var(--three-t);  }
+.three-b { fill: var(--three-b);  }
+.four-t { fill: var(--four-t);  }
+.four-b { fill: var(--four-b);  }
+.five-t { fill: var(--five-t);  }
+.five-b { fill: var(--five-b);  }
+.six-t { fill: var(--six-t);  }
+.six-b { fill: var(--six-b);  }
+.seven-t { fill: var(--seven-t);  }
+.seven-b { fill: var(--seven-b);  }
+.eight-t { fill: var(--eight-t);  }
+.eight-b { fill: var(--eight-b);  }
+.nine-t { fill: var(--nine-t);  }
+.nine-b { fill: var(--nine-b);  }
+.ten-t { fill: var(--ten-t);  }
+.ten-b { fill: var(--ten-b);  }
+.eleven-t { fill: var(--eleven-t);  }
+.eleven-b { fill: var(--eleven-b);  }
+.twelve-t { fill: var(--twelve-t);  }
+.twelve-b { fill: var(--twelve-b);  }
+.thirteen-t { fill: var(--thirteen-t);  }
+.thirteen-b { fill: var(--thirteen-b);  }
+.fourteen-t { fill: var(--fourteen-t);  }
+.fourteen-b { fill: var(--fourteen-b);  }
+.fifteen-t { fill: var(--fifteen-t);  }
+.fifteen-b { fill: var(--fifteen-b);  }

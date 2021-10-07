@@ -6,6 +6,7 @@ import YarnSettingsModal from "./YarnSettingsModal";
 import { Yarn } from "../types";
 import { Action } from "../reducer";
 import Button from "./baseComponents/Button";
+import classNames from "classnames";
 
 type Props = {
   yarn: Yarn;
@@ -25,6 +26,7 @@ function YarnTile({
   let state = useOverlayTriggerState({});
   let editButtonRef = useRef<HTMLButtonElement>(null);
   let deleteButtonRef = useRef<HTMLButtonElement>(null);
+  let selectButtonRef = useRef<HTMLButtonElement>(null);
 
   // useButton ensures that focus management is handled correctly,
   // across all browsers. Focus is restored to the button once the
@@ -42,13 +44,28 @@ function YarnTile({
     },
     deleteButtonRef
   );
+  let { buttonProps: selectButtonProps } = useButton(
+    {
+      onPress: () =>
+        dispatch({ type: "selectYarn", index: isSelected ? null : yarnIndex }),
+    },
+    selectButtonRef
+  );
 
   return (
     yarn && (
-      <li className="flex space-x-4 m-2 items-center border-gray-300 border p-2">
-        <div
+      <li
+        className={classNames(
+          "flex space-x-4 m-2 items-center border p-2 b",
+          isSelected ? "bg-red-100 border-red-300" : "border-gray-300"
+        )}
+      >
+        <button
+          {...selectButtonProps}
+          aria-label="Select yarn"
           className="w-8 h-8"
           style={{ backgroundColor: yarn.colour.toString("css") }}
+          ref={selectButtonRef}
         />
         {yarn.name && <p>{yarn.name}</p>}
         {yarn.number > 0 && (

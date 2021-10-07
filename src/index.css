@@ -1,34 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.one-t { fill: #c2015b; }
-.one-b { fill: #c2015b; }
-.two-t { fill: #c2015b; }
-.two-b { fill: #c2015b; }
-.three-t { fill: #c2015b; }
-.three-b { fill: #c2015b; }
-.four-t { fill: #c2015b; }
-.four-b { fill: #c2015b; }
-.five-t { fill: #181818; }
-.five-b { fill: #181818; }
-.six-t { fill: #181818; }
-.six-b { fill: #181818; }
-.seven-t { fill: #181818; }
-.seven-b { fill: #181818; }
-.eight-t { fill: #181818; }
-.eight-b { fill: #181818; }
-.nine-t { fill: #9644c6; }
-.nine-b { fill: #9644c6; }
-.ten-t { fill: #9644c6; }
-.ten-b { fill: #9644c6; }
-.eleven-t { fill: #9644c6; }
-.eleven-b { fill: #9644c6; }
-.twelve-t { fill: #9644c6; }
-.twelve-b { fill: #9644c6; }
-.thirteen-t { fill: #eeedea; }
-.thirteen-b { fill: #eeedea; }
-.fourteen-t { fill: #eeedea; }
-.fourteen-b { fill: #eeedea; }
-.fifteen-t { fill: #eeedea; }
-.fifteen-b { fill: #eeedea; }

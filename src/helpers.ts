@@ -1,4 +1,4 @@
-import { Row } from "./types";
+import { Row, Yarn } from "./types";
 
 export const countRemainingYarns = (
   index: number,
@@ -15,3 +15,6 @@ export const countRemainingYarns = (
             0)
       : remaining;
   }, total);
+
+export const getSelectedYarn = (selectedIndex: number, yarns: Yarn[]) =>
+  yarns[selectedIndex] ?? null;

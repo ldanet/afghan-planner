@@ -59,8 +59,7 @@ export type Action =
   | {
       type: "applyYarnToBraid";
       index: number;
-      layer: "top" | "bottom" | "both";
-      yarn: number;
+      layer: "top" | "bottom";
     }
   | { type: "selectYarn"; index: number | null };
 
@@ -106,13 +105,15 @@ export function reducer(state: State, action: Action): State {
       return { ...state, grid };
     }
     case "applyYarnToBraid": {
-      const { layer, index, yarn } = action;
+      const yarn = state.selectedYarn;
+      if (yarn === null) return state;
+      const { layer, index } = action;
       const braid = Object.assign({}, state.braid);
-      if (layer === "top" || layer === "both") {
+      if (layer === "top") {
         braid.top = [...state.braid.top];
         braid.top[index] = yarn;
       }
-      if (layer === "bottom" || layer === "both") {
+      if (layer === "bottom") {
         braid.bottom = [...state.braid.bottom];
         braid.bottom[index] = yarn;
       }

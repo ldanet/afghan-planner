@@ -11,7 +11,7 @@ function Settings({ className }: { className?: string }) {
   } = useContext(StateContext);
   return (
     <div className={className}>
-      <h2 className="text-2xl mb-3">Yarn settings</h2>
+      <h2 className="text-xl ">Yarn settings</h2>
       <ul className="flex justify-start flex-wrap">
         {yarns.map(
           (yarn, index) =>

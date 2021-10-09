@@ -46,8 +46,7 @@ function YarnTile({
   );
   let { buttonProps: selectButtonProps } = useButton(
     {
-      onPress: () =>
-        dispatch({ type: "selectYarn", index: isSelected ? null : yarnIndex }),
+      onPress: () => dispatch({ type: "selectYarn", index: yarnIndex }),
     },
     selectButtonRef
   );
@@ -62,7 +61,7 @@ function YarnTile({
       >
         <button
           {...selectButtonProps}
-          aria-label="Select yarn"
+          aria-label="Select this yarn"
           className="w-8 h-8"
           style={{ backgroundColor: yarn.colour.toString("css") }}
           ref={selectButtonRef}

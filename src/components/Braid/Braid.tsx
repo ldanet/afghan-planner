@@ -76,8 +76,17 @@ const Braid = () => {
   return (
     <div className="flex flex-row h-full">
       <BraidSVG handleClick={handleBraidClick} />
-      <div className="space-y-1 flex-1 p-2">
-        <h1 className="text-center text-4xl mb-4">Braid Planner</h1>
+      <div className="flex-1 p-2 sm:p-4">
+        <h1 className="text-center text-4xl mb-4">AADC Braid Planner</h1>
+        <p className="mb-2">
+          This page is a tool for creating designs for kute-uchi AADC flat
+          braids with 15 loops.{" "}
+        </p>
+        <p className="mb-4">
+          Click on the coloured square of a yarn to select it, then click on the
+          braid or the loop arrangement to apply the yarn colour.
+        </p>
+        <h2 className="text-xl mb-2">Initial loop arrangement</h2>
         <div className="max-w-md relative">
           {/* left hand  */}
           <div className="float-left mr-4">
@@ -138,7 +147,28 @@ const Braid = () => {
             </div>
           </div>
         </div>
-        <Settings className="pt-4 clear-both" />
+        <Settings className="pt-4 mb-4 clear-both" />
+        <h2>Links for more information about kute-uchi braiding:</h2>
+        <ul>
+          <li>
+            <a
+              className="underline text-red-800"
+              href="http://web.archive.org/web/20190129055548/http://www.lmbric.net/ILh/ILh.html"
+            >
+              Illustrated instruction: Kute-uchi
+            </a>{" "}
+            from the L-M Braiding Research & Information Center
+          </li>
+          <li>
+            <a
+              className="underline text-red-800"
+              href="http://kutebraider.blogspot.com/2017/07/kuteuchi-basic-4-movements.html"
+            >
+              Kute-uchi basic 4 movements
+            </a>{" "}
+            on Fumiyo's blog, which includes video instructions.
+          </li>
+        </ul>
       </div>
     </div>
   );

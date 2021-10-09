@@ -69,11 +69,12 @@ export function reducer(state: State, action: Action): State {
       return {
         ...state,
         yarns: [...state.yarns, action.yarn],
+        selectedYarn: state.yarns.length,
       };
     case "updateYarn": {
       const yarns = [...state.yarns];
       yarns[action.index] = action.yarn;
-      return { ...state, yarns };
+      return { ...state, yarns, selectedYarn: action.index };
     }
     case "setHeight": {
       const grid =

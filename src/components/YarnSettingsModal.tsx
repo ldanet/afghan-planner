@@ -14,7 +14,6 @@ import { Action } from "../reducer";
 import { Yarn } from "../types";
 import { useButton } from "@react-aria/button";
 import { useTextField } from "@react-aria/textfield";
-import NumberField from "./baseComponents/NumberField";
 import Button from "./baseComponents/Button";
 import Input from "./baseComponents/Input";
 import ColorSlider from "./baseComponents/ColorSlider";
@@ -39,9 +38,6 @@ function YarnSettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
   const [colour, setColour] = useState<Color>(
     props.yarn ? props.yarn.colour : parseColor("hsl(0,100%,50%)")
   );
-  const [number, setNumber] = useState<number>(
-    props.yarn ? props.yarn.number : 0
-  );
 
   // Handle interacting outside the dialog and pressing
   // the Escape key to close the modal.
@@ -61,15 +57,15 @@ function YarnSettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
   const onSave = useCallback(() => {
     dispatch(
       props.isNew
-        ? { type: "addYarn", yarn: { name, colour, number } }
+        ? { type: "addYarn", yarn: { name, colour, number: 0 } }
         : {
             type: "updateYarn",
-            yarn: { name, colour, number },
+            yarn: { name, colour, number: 0 },
             index: props.yarnIndex,
           }
     );
     onClose();
-  }, [onClose, colour, dispatch, name, number, props]);
+  }, [onClose, colour, dispatch, name, props]);
 
   const onCancel = useCallback(() => {
     onClose();
@@ -107,14 +103,6 @@ function YarnSettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
             {props.isNew ? "Add yarn" : "Update yarn"}
           </h3>
           <form onSubmit={onSave}>
-            <label
-              className="block text-lg"
-              htmlFor={nameInputProps.id}
-              {...nameLabelProps}
-            >
-              Name
-            </label>
-            <Input className="mb-3" {...nameInputProps} />
             <fieldset className="mb-3 border border-gray-300 p-4 pt-0">
               <legend className="text-lg">Yarn colour</legend>
               <div
@@ -133,13 +121,14 @@ function YarnSettingsModal({ dispatch, onClose, isOpen, ...props }: Props) {
                 onChange={setColour}
               />
             </fieldset>
-            <NumberField
-              className="mb-3"
-              labelClassName="text-lg"
-              label="Maximum number of squares in this yarn"
-              onChange={setNumber}
-              value={number}
-            />
+            <label
+              className="block text-lg"
+              htmlFor={nameInputProps.id}
+              {...nameLabelProps}
+            >
+              Name
+            </label>
+            <Input className="mb-3" {...nameInputProps} />
             <div className="grid gap-3 grid-cols-2">
               <Button {...cancelButtonProps}>Cancel</Button>
               <Button {...saveButtonProps}>
